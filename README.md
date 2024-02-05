@@ -1,3 +1,3 @@
-Guía: How to Change the Order of Flexbox Items with the Order Property
+Guía: Overview of Align Self in Flexbox
 
-https://basque.devcamp.com/pt-full-stack-development-javascript-python-react/guide/how-to-change-order-flexbox-items-order-property
+https://basque.devcamp.com/pt-full-stack-development-javascript-python-react/guide/overview-align-self-flexbox
