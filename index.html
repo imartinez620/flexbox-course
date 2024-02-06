@@ -7,76 +7,100 @@
     <script src="https://kit.fontawesome.com/0f3793b933.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&amp;display=swap" rel="stylesheet">
     <style>
+        html {
+            font-family: 'Oxygen', sans-serif;
+        }
+
         body{
-            margin: 0;
-            padding: 0;
-            color: aliceblue;
+            margin: 0px;
         }
 
-        .nat-bar-wrapper{
-            height: 50px;
-            background-color: darkslategrey;
-            display: flex;
-
+        .navbar{
+            background: #415068;
         }
 
-        .name-wrapper{
-            height: 100%;
-            width: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .navbar div{
+            display: none;
         }
 
-        .links-wrapper{
-            display: flex;
-            width: 100%;
-        }
-        
-        .links-right-wrapper{
-            justify-content: right;
+        .navbar .toggle,
+        .navbar .brand{
+            display: inline-block;
         }
 
-        .link{
-            display: flex;
-            width: 75px;
-            height: 100%;
-            background-color: darkolivegreen;
-            align-items: center;
-            justify-content: center;
-
-        }
-
-        .link:hover{
-            background-color: antiquewhite;
-
-        }
-
-        .link a{
+        .navbar .link{
+            display: block;
+            text-align: center;
+            padding: 1em;
             text-decoration: none;
-            color: aliceblue;
+            background: #223047;
+            color:white;
         }
 
-        .link:hover a{
+        .navbar .link:hover,
+        .navbar .link:active{
+            color:#223047;
+            background: white;
+        }
+
+        .navbar .brand{
+            width: 10em;
+            text-align: center;
+            padding: 1em;
+            color: white;
+        }
+
+        .navbar a{
+            text-decoration: none;
+        }
+
+        .navbar .toggle{
+            padding: 1em;
             color: black;
-
         }
 
-        /* <i class="fa-regular fa-hand-pointer"></i> */
-        @media (max-width:600px){
-            .nat-bar-wrapper{
-                height: 75px;
-                flex-direction: column;
+        @media (min-width:48em){
+            .navbar{
+                display: flex;
             }
             
-            .name-wrapper{
-                height: 75px;
-                width: 150px;
+            .navbar .left,
+            .navbar .right{
+                display: flex;
+                flex: 1;
             }
 
-            .links-wrapper{
-                flex-direction: column;
-                width: 75px;
+            .navbar .link{
+                width: auto;
+            }
+
+            .navbar .right{
+                justify-content: flex-end;
+            }
+
+            .navbar .toggle{
+                display: none;
+            }
+        }
+
+        @media (min-width: 48em) {
+            .navbar div {
+                display: flex;
+            }
+        }
+
+        @media (max-width:48em){
+            .navbar.active.toggle{
+                background: #223047;
+                color: white;
+            }
+
+            .navbar .brand{
+                text-align: left;
+            }
+
+            .navbar.active div{
+                display: block;
             }
         }
     </style>
@@ -84,27 +108,26 @@
 </head>
 
 <body>
-        <div class="nat-bar-wrapper">
-            <div class="name-wrapper">
-                MyName
-            </div>
-            <div class="links-wrapper">
-                <div class="link">
-                    <a href="#">Link 1</a>
-                </div>
-                <div class="link">
-                    <a href="#">Link 2</a>
-                </div>
-                
-            </div>
-
-            <div class="link-right-wrapper">
-                <div class="link">
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
-
+    <div class="navbar">
+        <a href="#" class="toggle" id="navHamburger">
+            <i class="fas fa-bars"></i>
+        </a>
+        <a href="#" class="brand">MyName</a>
+        <div class="left">
+            <a href="#" class="link">Link 1</a>
+            <a href="#" class="link">Link 2</a>
         </div>
-    
+
+        <div class="right">
+            <a href="#" class="link">Link 3</a>
+        </div>
+    </div>
 </body>
+
+<script>
+    const navHamburger = document.querySelector('#navHamburger');
+    navHamburger.addEventListener('click', (e) => {
+        navHamburger.parentElement.classList.toggle('active');
+    })
+</script>
 </html>
